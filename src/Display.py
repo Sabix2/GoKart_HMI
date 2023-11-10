@@ -1,6 +1,8 @@
 import time
 import tkinter as tk
 from tkinter import ttk
+
+
 class Display:
     def __init__(self, root):
         self.root = root
@@ -37,14 +39,16 @@ class Display:
     def background(self):
         self.time_label['text'] = time.asctime()
         self.speed_label.config(text=self.kmh_textbox.get("1.0", "end-1c"))
-        self.updateBattery(self.percent)
+        self.percent = self.updateBattery(self.percent)
         self.root.after(1, self.background)
 
     def quit(self):
         self.root.quit()
+
     def updateBattery(self, percentage: int):
-        self.percent += 0.01
-        if(self.percent >= 100):
-            self.percent = 0
-        print(self.percent)
+        percentage = 0.1
+        if percentage >= 100:
+            percentage = 0
+        print(percentage)
         self.battery_pb.step(percentage)
+        return percentage
