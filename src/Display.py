@@ -1,10 +1,12 @@
 import time
 import tkinter as tk
 from tkinter import ttk
-
+from Warnings import Warnings
 
 class Display:
     def __init__(self, root):
+        self.voltage = 0
+
         self.root = root
         self.root.geometry('800x480')
 
@@ -46,9 +48,11 @@ class Display:
         self.root.quit()
 
     def updateBattery(self, percentage: int):
-        percentage = 0.1
+        percentage = 0.01
         if percentage >= 100:
             percentage = 0
         print(percentage)
         self.battery_pb.step(percentage)
         return percentage
+
+    def checkWarnings(self, percentage):
