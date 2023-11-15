@@ -1,7 +1,7 @@
 import time
 import tkinter as tk
 from tkinter import ttk
-from Warnings import Warnings
+from src.Warnings import Warnings
 
 class Display:
     def __init__(self, root):
@@ -13,6 +13,8 @@ class Display:
         self.root.title('GoKart HMI')
         self.frame = tk.Frame(self.root, background='#404040')
         self.frame.pack(fill='both', expand=True)
+
+        self.warn = Warnings()
 
         self.time_label = tk.Label(self.frame, text='0', bg='#404040', fg='white')
         self.time_label.pack()
@@ -42,6 +44,7 @@ class Display:
         self.time_label['text'] = time.asctime()
         self.speed_label.config(text=self.kmh_textbox.get("1.0", "end-1c"))
         self.percent = self.updateBattery(self.percent)
+        self.warn.update()
         self.root.after(1, self.background)
 
     def quit(self):
@@ -55,4 +58,4 @@ class Display:
         self.battery_pb.step(percentage)
         return percentage
 
-    def checkWarnings(self, percentage):
+    #def checkWarnings(self, percentage):
