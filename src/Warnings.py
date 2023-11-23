@@ -6,7 +6,7 @@ class Warnings:
         self.update()
 
     def update(self):
-        self.battery(self.batteryPercent, self.batteryWarning)
+        self.battery(self.batteryPercent)
 
     def battery(self, percentage):
         if percentage <= 20:
