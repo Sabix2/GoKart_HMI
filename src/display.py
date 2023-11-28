@@ -5,17 +5,24 @@ class for the Display changes
 import pygame
 import sys
 
+# local imports
+from src.velocity import Velocity
+from src.battery import Battery
+
 class Display:
     def __init__(self, screen):
         self.screen = screen
+        self.velocity = Velocity(self.screen)
+        self.battery = Battery(self.screen)
 
     def getData(self):
         # get the data from the other files
         pass
 
     def update(self):
+        self.battery.update()
+        self.velocity.update()
         self.close_Button()
-        self.velocity(0)
 
     # function to draw the button to close the window on the top right
     def close_Button(self):
@@ -32,9 +39,3 @@ class Display:
                 # close the window
                 pygame.quit()
                 sys.exit()
-    
-    def velocity(self, velocity):
-        # draw the text
-        font = pygame.font.SysFont('Arial', 30)
-        text = font.render('Velocity: ' + str(velocity), True, (0, 0, 0))
-        self.screen.blit(text, (0, 0))

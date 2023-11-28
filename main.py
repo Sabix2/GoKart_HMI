@@ -19,7 +19,6 @@ from src.display import Display
 # from src.error import Error
 # from src.revolutions import Revolutions
 # from src.battery import Battery
-# from src.velocity import Velocity
 
 # innit pygame
 pygame.init()
@@ -35,7 +34,6 @@ Frame = Display(screen)
 # Error = Error()
 # Revolutions = Revolutions()
 # Battery = Battery()
-# Velocity = Velocity()
 
 # set up the pygame loop
 running = True
@@ -48,8 +46,8 @@ while running:
     # fill the screen with white
     screen.fill((100, 100, 100))
 
-    # make a button to close the window
-    Frame.close_Button()
+    # make the display update
+    Frame.update()
 
     # update the display
     pygame.display.flip()
