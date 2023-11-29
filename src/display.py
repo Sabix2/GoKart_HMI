@@ -19,10 +19,6 @@ class Display:
         self.velocity = Velocity(self.screen)
         self.error = Error(self.screen)
 
-    def getData(self):
-        # get the data from the other files
-        pass
-
     def update(self):
         self.velocity.update()
         self.battery.update()

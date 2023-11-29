@@ -1,20 +1,17 @@
 '''
 class for the error events
 '''
-
-# imports
+ 
 import pygame
+from src.data import Data
 
 class Error:
     def __init__(self, screen):
         self.screen = screen
-    
-    def getData(self):
-        # get the data from the other files
-        pass
+        self.percentage = Data().percentage
 
     def update(self):
-        self.batteryWarning(34)
+        self.batteryWarning(self.percentage)
 
     # function to display an image if the perdcenage of the battery is low and another image if the battery is full
     def batteryWarning(self, percentage):
@@ -27,4 +24,7 @@ class Error:
         else:
             # display the image for a critical battery
             img = pygame.image.load("assets/images/BatteryWarningCritical.png")
-        self.screen.blit(img, (0, 0))
+        
+        img = pygame.transform.scale(img, (50, 50))
+        # place the image below the battery bar
+        self.screen.blit(img, (45, 410))

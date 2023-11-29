@@ -3,20 +3,16 @@ class for the revs of the motor calculations
 '''
 
 import pygame
-import sys
-from pygame import gfxdraw
+from src.data import Data
 
 class Revolutions:
     def __init__(self, screen):
         self.screen = screen
-        self.maxRevs = 5500
-    
-    def getData(self):
-        # get the data from the other files
-        pass
+        self.revs = Data().revs
+        self.maxRevs = Data().maxRevs
 
     def update(self):
-        self.revBar(5500/2)
+        self.revBar(self.revs)
 
     # function to draw the arc bar for the revolutions (rpm)
     # revs range from 0-5500

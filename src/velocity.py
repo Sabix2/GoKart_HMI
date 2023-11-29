@@ -3,18 +3,15 @@ class for the velocity visualization
 '''
 
 import pygame
-import sys
+from src.data import Data
 
 class Velocity:
     def __init__(self, screen):
         self.screen = screen
-    
-    def getData(self):
-        # get the data from the other files
-        pass
+        self.velocity = Data().velocity
 
     def update(self):
-        self.speed(125)
+        self.speed(self.velocity)
 
     def speed(self, speed):
         # draw the text in the middle of the screen
