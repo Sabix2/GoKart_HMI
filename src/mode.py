@@ -3,4 +3,12 @@ class for the mode selection
 '''
 
 class Mode:
-    pass
+    def __init__(self, screen):
+        self.screen = screen
+    
+    def getData(self):
+        # get the data from the other files
+        pass
+
+    def update(self):
+        self.batteryBar(25)

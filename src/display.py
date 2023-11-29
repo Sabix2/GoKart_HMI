@@ -3,13 +3,13 @@ class for the Display changes
 '''
 
 import pygame
-from pygame import gfxdraw
 import sys
 
 # local imports
 from src.velocity import Velocity
 from src.battery import Battery
 from src.revolutions import Revolutions
+from src.error import Error
 
 class Display:
     def __init__(self, screen):
@@ -17,6 +17,7 @@ class Display:
         self.revolutions = Revolutions(self.screen)
         self.battery = Battery(self.screen)
         self.velocity = Velocity(self.screen)
+        self.error = Error(self.screen)
 
     def getData(self):
         # get the data from the other files
@@ -26,6 +27,7 @@ class Display:
         self.velocity.update()
         self.battery.update()
         self.revolutions.update()
+        self.error.update()
         self.close_Button()
 
     # function to draw the button to close the window on the top right

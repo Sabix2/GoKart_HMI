@@ -10,8 +10,6 @@ displays the current mode selected
 
 # imports
 import pygame
-from pygame import gfxdraw
-import time
 
 # local imports
 from src.display import Display
