@@ -14,29 +14,17 @@ class Battery:
         pass
 
     def update(self):
-        self.battery(50)
+        self.batteryBar(25)
 
-    # draw a bar which shows the battery percentage on the left side of the display with a space of 10px to the border
-    def battery(self, percentage):
-        # check if the percentage is bigger than 100 or smaller than 0
-        if percentage > 100:
-            percentage = 100
-        elif percentage < 0:
-            percentage = 0
-        # draw the battery
-        pygame.draw.rect(self.screen, (0, 0, 0), (10, 10, 50, 30), 3)
-        pygame.draw.rect(self.screen, (0, 0, 0), (60, 20, 10, 10))
-        pygame.draw.rect(self.screen, (0, 0, 0), (60, 15, 10, 20))
-        pygame.draw.rect(self.screen, (0, 0, 0), (70, 25, 10, 0 - percentage * 0.2))
-        # draw the percentage
-        font = pygame.font.SysFont('Arial', 20)
-        text = font.render(str(percentage) + '%', True, (0, 0, 0))
-        self.screen.blit(text, (80, 10))
-        # draw the border
-        pygame.draw.rect(self.screen, (0, 0, 0), (10, 10, 50, 30), 3)
-        # draw the text
-        font = pygame.font.SysFont('Arial', 20)
-        text = font.render('Battery', True, (0, 0, 0))
-        self.screen.blit(text, (10, 50))
-        # draw the border
-        pygame.draw.rect(self.screen, (0, 0, 0), (10, 10, 50, 30), 3)
+    # function to draw a battery bar that gets an input 0-100, the bar should be standing and on the left side
+    def batteryBar(self, percentage):
+        # draw the background of the battery bar
+        pygame.draw.rect(self.screen, (50, 50, 50), (50, 80, 50, 320))
+        # draw the battery bar, which changes with the percentage
+        pygame.draw.rect(self.screen, (0, 150, 0), (50, 400 - percentage * 3.2, 50, percentage * 3.2))
+        # draw the text which shows the percentage below the battery bar
+        font = pygame.font.SysFont('Arial', 30)
+        text = font.render(str(percentage) + "%", False, (0, 0, 0))
+        textRect = text.get_rect()
+        textRect.center = (75, 430)
+        self.screen.blit(text, textRect)

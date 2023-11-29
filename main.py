@@ -10,30 +10,21 @@ displays the current mode selected
 
 # imports
 import pygame
+from pygame import gfxdraw
 import time
 
 # local imports
 from src.display import Display
-# from src.button import Button
-# from src.mode import Mode
-# from src.error import Error
-# from src.revolutions import Revolutions
-# from src.battery import Battery
 
 # innit pygame
 pygame.init()
 
 # set up the pygame window
-screen = pygame.display.set_mode((800, 480), pygame.NOFRAME)
+#                                           change to NOFRAME for linux
+screen = pygame.display.set_mode((800, 480), pygame.SHOWN)
 
 # set up the instances of the classes
 Frame = Display(screen)
-# reverseButton = Button()
-# modeButton = Button()
-# analyzeButton = Button()
-# Error = Error()
-# Revolutions = Revolutions()
-# Battery = Battery()
 
 # set up the pygame loop
 running = True
@@ -43,8 +34,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # fill the screen with white
-    screen.fill((100, 100, 100))
+    # fill the screen with a dark grey
+    screen.fill((80, 80, 80))
 
     # make the display update
     Frame.update()
