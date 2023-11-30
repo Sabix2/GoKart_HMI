@@ -1,7 +1,7 @@
 '''
 class for the error events
 '''
- 
+
 import pygame
 from src.data import Data
 
@@ -13,7 +13,7 @@ class Error:
     def update(self):
         self.batteryWarning(self.percentage)
 
-    # function to display an image if the perdcenage of the battery is low and another image if the battery is full
+    # function to display errors when the battery is normal/low/critical
     def batteryWarning(self, percentage):
         if percentage > 20:
             # display the image for a full battery
@@ -24,7 +24,8 @@ class Error:
         else:
             # display the image for a critical battery
             img = pygame.image.load("assets/images/BatteryWarningCritical.png")
-        
+
+        # scale the image to 50x50
         img = pygame.transform.scale(img, (50, 50))
         # place the image below the battery bar
         self.screen.blit(img, (45, 410))
