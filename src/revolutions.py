@@ -1,5 +1,8 @@
 '''
 class for the revs of the motor calculations
+angle of the arc is 217 degrees
+min angle of the arc is at -32 degrees on the left side
+max angle of the arc is at -5 degrees on the right side
 '''
 
 import pygame
@@ -12,17 +15,36 @@ class Revolutions:
         self.maxRevs = Data().maxRevs
 
     def update(self):
-        self.revBar(self.revs)
+        self.revsBackground()
+        self.revBar(2500)
 
-    # function to draw the arc bar for the revolutions (rpm)
-    # revs range from 0-5500
+    #function to draw an image which is the background of the revs gauge
+    def revsBackground(self):
+        #load the image
+        image = pygame.image.load("./assets/images/RevsGaugeNew.png")
+
+        #scale the image to 400x400
+        image = pygame.transform.scale(image, (400, 400))
+
+        #blit the image to the screen
+        self.screen.blit(image, (200, 60))
+    
+    #function to draw the revs bar using an image which is located in assets/images/RevsGaugeNewOverlay.png
+    #the image is 900x900 and has a transparent background
+    #the image is beeing cut of by a rectangle which is calculated according to the current revs
     def revBar(self, revs):
-        # draw the arc, a circle which should have the velocity in the middle of the rect parameter rect parameter should be 400x400 the arc should be 200 degrees with a gap at the bottom of 160 degrees the arc should start at 140 degrees
-        pygame.draw.arc(self.screen, (20, 20, 20), (200, 60, 400, 400), -3.14/5.5, 3.14+3.14/5.5, 15)
+        #load the image
+        image = pygame.image.load("./assets/images/RevsGaugeNewOverlay.png")
 
-        # draw the arc of the max revs minus the current revs
-        # calculate the angle of the arc, where it should start according to the current revs
-        angle = (3.14 + 3.14/2.75)*(revs/self.maxRevs)
-        pygame.draw.arc(self.screen, (0, 100, 0), (200, 60, 400, 400), ((3.14+3.14/5.5)-angle), 3.14+3.14/5.5, 15)
+        #scale the image to 400x400
+        image = pygame.transform.scale(image, (400, 400))
 
+        #calculate the lenght of the rectangle which is beeing cut of
+        #the lenght is calculated according to the current revs
+        #the revs range from 0-5500
+        rect = pygame.Rect(0, 0, 400, 400)
 
+        #rotatate the rectangel
+
+        #blit the image to the screen
+        self.screen.blit(image, (200, 60))
