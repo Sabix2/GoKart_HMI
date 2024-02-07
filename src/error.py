@@ -29,3 +29,9 @@ class Error:
         img = pygame.transform.scale(img, (50, 50))
         # place the image below the battery bar
         self.screen.blit(img, (45, 410))
+
+    def temperatureWarning(self):
+        pass
+
+    def collisionWarning(self):
+        pass
