@@ -33,7 +33,7 @@ while running:
             running = False
 
     # fill the screen with a dark grey
-    screen.fill((80, 80, 80))
+    screen.fill((40, 40, 40))
 
     # make the display update
     Frame.update()

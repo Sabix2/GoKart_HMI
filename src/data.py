@@ -9,3 +9,4 @@ class Data:
         self.maxRevs = 5500
         self.velocity = 171
         self.modeButton = 0
+        self.temperature = 0

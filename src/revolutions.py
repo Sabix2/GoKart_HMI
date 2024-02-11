@@ -16,7 +16,7 @@ class Revolutions:
 
     def update(self):
         self.revsBackground()
-        self.revBar(2500)
+        self.neorevBar(2500)
 
     #function to draw an image which is the background of the revs gauge
     def revsBackground(self):
@@ -30,14 +30,10 @@ class Revolutions:
         self.screen.blit(image, (200, 60))
     
     #function to draw the revs bar using an image which is located in assets/images/RevsGaugeNewOverlay.png
-    #the image is 900x900 and has a transparent background
     #the image is beeing cut of by a rectangle which is calculated according to the current revs
     def revBar(self, revs):
         #load the image
         image = pygame.image.load("./assets/images/RevsGaugeNewOverlay.png")
-
-        #scale the image to 400x400
-        image = pygame.transform.scale(image, (400, 400))
 
         #calculate the lenght of the rectangle which is beeing cut of
         #the lenght is calculated according to the current revs
@@ -48,3 +44,24 @@ class Revolutions:
 
         #blit the image to the screen
         self.screen.blit(image, (200, 60))
+
+    # create the arc for the revs
+    def neorevBar(self, revs):
+
+        # set the position of the arc
+        x = 230
+        y = 91
+
+        # set the height and width of the arc
+        width = 341
+        height = 341
+
+        # set the start and end angle of the arc in radians
+        start_angle = -0.2
+        end_angle = 3.6
+
+        # draw the arc
+        pygame.draw.arc(self.screen, (0, 0, 255), (x, y, width, height), start_angle, end_angle, 17)
+
+        # draw the arc
+        pygame.draw.arc(self.screen, (0, 0, 250), (x, y, width, height), start_angle, end_angle, 17)

@@ -17,13 +17,13 @@ class Error:
     def batteryWarning(self, percentage):
         if percentage > 20:
             # display the image for a full battery
-            img = pygame.image.load("assets/images/BatteryWarningStandby.png")
+            img = pygame.image.load("assets/images/warnings/BatteryWarningStandby.png")
         elif percentage > 10:
             # display the image for a low battery
-            img = pygame.image.load("assets/images/BatteryWarningLow.png")
+            img = pygame.image.load("assets/images/warnings/BatteryWarningLow.png")
         else:
             # display the image for a critical battery
-            img = pygame.image.load("assets/images/BatteryWarningCritical.png")
+            img = pygame.image.load("assets/images/warnings/BatteryWarningCritical.png")
 
         # scale the image to 50x50
         img = pygame.transform.scale(img, (50, 50))
