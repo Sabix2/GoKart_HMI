@@ -30,8 +30,21 @@ class Error:
         # place the image below the battery bar
         self.screen.blit(img, (45, 410))
 
-    def temperatureWarning(self):
-        pass
+    def temperatureWarning(self, temperature):
+        if temperature > 20:
+            # display the image for a high temperature
+            img = pygame.image.load("assets/images/warnings/HighTemperatureWarning.png")
+        elif temperature > 10:
+            # display the image for a moderate temperature
+            img = pygame.image.load("assets/images/warnings/ModerateTemperatureWarning.png")
+        else:
+            # display the image for a low temperature
+            img = pygame.image.load("assets/images/warnings/LowTemperatureWarning.png")
+
+        # scale the image to 50x50
+        img = pygame.transform.scale(img, (50, 50))
+        # place the image below the battery bar
+        self.screen.blit(img, (45, 410))
 
     def collisionWarning(self):
         pass
