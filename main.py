@@ -18,7 +18,7 @@ from src.display import Display
 pygame.init()
 
 # set up the pygame window
-#                                           change to NOFRAME for linux
+#                                           change to NOFRAME for linux, SHOWN for Windows
 screen = pygame.display.set_mode((800, 480), pygame.SHOWN)
 
 # set up the instances of the classes

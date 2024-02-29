@@ -29,9 +29,9 @@ class Power:
         #draw the text, which inicates the power in kW below the bar
         font1 = pygame.font.Font('assets/fonts/Seven_Segment.ttf', 30)
         text1 = font1.render(str(power/10), False, (255, 255, 255))
-        font2 = pygame.font.SysFont('Arial', 23)
+        font2 = pygame.font.SysFont('Arial', 26)
         text2 = font2.render("kW", False, (255, 255, 255))
-        textRect1 = text1.get_rect().center = (720, 420)
-        textRect2 = text2.get_rect().center = (740, 410)
+        textRect1 = text1.get_rect().center = (700, 415)
+        textRect2 = text2.get_rect().center = (740, 413)
         self.screen.blit(text1, textRect1)
         self.screen.blit(text2, textRect2)

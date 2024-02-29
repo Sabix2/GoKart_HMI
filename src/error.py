@@ -9,9 +9,13 @@ class Error:
     def __init__(self, screen):
         self.screen = screen
         self.percentage = Data().percentage
+        self.temperature = Data().temperature
+        self.collision = Data().collision
 
     def update(self):
         self.batteryWarning(self.percentage)
+        self.temperatureWarning(self.temperature)
+        self.collisionWarning(self.collision)
 
     # function to display errors when the battery is normal/low/critical
     def batteryWarning(self, percentage):
@@ -25,26 +29,29 @@ class Error:
             # display the image for a critical battery
             img = pygame.image.load("assets/images/warnings/BatteryWarningCritical.png")
 
-        # scale the image to 50x50
-        img = pygame.transform.scale(img, (50, 50))
         # place the image below the battery bar
         self.screen.blit(img, (45, 410))
 
     def temperatureWarning(self, temperature):
-        if temperature > 20:
-            # display the image for a high temperature
-            img = pygame.image.load("assets/images/warnings/HighTemperatureWarning.png")
-        elif temperature > 10:
-            # display the image for a moderate temperature
-            img = pygame.image.load("assets/images/warnings/ModerateTemperatureWarning.png")
+        if temperature == 'c':
+            # display the image for a critical temperature
+            img = pygame.image.load("assets/images/warnings/TemperatureWarningCritical.png")
+        elif temperature == 'i':
+            # display the image for a increased temperature
+            img = pygame.image.load("assets/images/warnings/TemperatureWarningIncreased.png")
         else:
-            # display the image for a low temperature
-            img = pygame.image.load("assets/images/warnings/LowTemperatureWarning.png")
+            # display the image for a normal temperature
+            img = pygame.image.load("assets/images/warnings/TemperatureWarningStandby.png")
 
-        # scale the image to 50x50
-        img = pygame.transform.scale(img, (50, 50))
         # place the image below the battery bar
-        self.screen.blit(img, (45, 410))
+        self.screen.blit(img, (110, 410))
 
-    def collisionWarning(self):
-        pass
+    def collisionWarning(self, collision):
+        if collision == 1:
+            # display the image for a collision
+            img = pygame.image.load("assets/images/warnings/CollisionWarningOn.png")
+            self.screen.blit(img, (175, 410))
+        else:
+            # display the image for no collision
+            img = pygame.image.load("assets/images/warnings/CollisionWarningStandby.png")
+            self.screen.blit(img, (175, 410))
