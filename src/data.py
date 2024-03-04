@@ -12,3 +12,4 @@ class Data:
         self.temperature = 'n'
         self.power = 50
         self.collision = 0
+        self.mode = 's'

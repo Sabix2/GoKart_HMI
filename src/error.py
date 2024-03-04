@@ -1,5 +1,5 @@
 '''
-class for the error events
+klasse für die anzeige der Fehlermeldungen
 '''
 
 import pygame

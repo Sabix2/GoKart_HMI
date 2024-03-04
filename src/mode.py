@@ -1,24 +1,37 @@
 '''
-class for the mode selection
+klasse für die anzeige des Modus
 '''
 
+import pygame
 from src.data import Data
 
 class Mode:
     def __init__(self, screen):
         self.screen = screen
-        self.mode = 0
+        # den modus aus der data klasse holen
+        self.mode = Data().mode
 
     def update(self):
-        
+        self.currentMode(self.mode)
+    
+    # funktion für den modus
+    # 's' = standart nicht relevant
+    # 'e' = eco
+    # 'd' = drag
+    # modus . . . modus des fahrzeugs
+    def currentMode(self, mode):
+        # für jeden modus den passende
+        match mode:
+            case 's':
+                mode = ''
+            case 'e':
+                mode = 'Eco'
+            case 'd':
+                mode = 'Drag'
 
-    def modeSelection(self):
-        self.button = Data().modeButton
-        if mode == 0:
-            pass
-        elif mode == 1:
-            pass
-        elif mode == 2:
-            pass
-        elif mode == 3:
-            pass
+        # den text in die untere mitte des bildschirms zeichnen
+        font = pygame.font.SysFont('Arial', 30)
+        text = font.render(str(mode), False, (255, 255, 255))
+        textRect = text.get_rect()
+        textRect.center = (400, 400)
+        self.screen.blit(text, textRect)

@@ -1,44 +1,27 @@
 '''
-main file
-a 800x480 display
-displays the current velocity of the Gokart
-displays the current battery voltage
-displays the current errors
-displays the current revolutions per minute of the motor
-displays the current mode selected
+sorgt dafür, dass das der Bidlschirm angezeigt wird und am laufen bleibt
 '''
 
-# imports
 import pygame
-
-# local imports
 from src.display import Display
 
-# innit pygame
+#pygame initialisieren
 pygame.init()
 
-# set up the pygame window
-#                                           change to NOFRAME for linux, SHOWN for Windows
-screen = pygame.display.set_mode((800, 480), pygame.SHOWN)
+# erstelle das Fenster
+screen = pygame.display.set_mode((800, 480), pygame.NOFRAME)
 
-# set up the instances of the classes
+# instanziiere das Display
 Frame = Display(screen)
 
-# set up the pygame loop
+# schleife für das Fenster erstellen 
 running = True
 while running:
-    # handle events
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    # fill the screen with a dark grey
+    # erstelle den hintergrund
     screen.fill((40, 40, 40))
 
-    # make the display update
+    # schleife für die events
     Frame.update()
 
-    # update the display
+    # den Bildschirm aktualisieren
     pygame.display.flip()
-
-# end of the program
