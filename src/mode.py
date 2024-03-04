@@ -1,5 +1,5 @@
 '''
-klasse für die anzeige des Modus
+klasse fuer die anzeige des Modus
 '''
 
 import pygame
@@ -14,13 +14,13 @@ class Mode:
     def update(self):
         self.currentMode(self.mode)
     
-    # funktion für den modus
+    # funktion fuer den modus
     # 's' = standart nicht relevant
     # 'e' = eco
     # 'd' = drag
     # modus . . . modus des fahrzeugs
     def currentMode(self, mode):
-        # für jeden modus den passende
+        # fuer jeden modus den passende
         match mode:
             case 's':
                 mode = ''

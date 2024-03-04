@@ -1,5 +1,5 @@
 '''
-klasse für die anzeige der Geschwindigkeit
+klasse fuer die anzeige der Geschwindigkeit
 '''
 
 import pygame
@@ -14,7 +14,7 @@ class Velocity:
     def update(self):
         self.speed(self.velocity)
 
-    # funktion für die geschwindigkeit 
+    # funktion fuer die geschwindigkeit 
     # speed . . . geschwindigkeit des fahrzeugs
     def speed(self, speed):
         # den text in der mitte des bildschirms anzeigen

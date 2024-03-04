@@ -1,5 +1,5 @@
 '''
-klasse für die anzeige des balkens mit der aktuellen leistung in kW
+klasse fuer die anzeige des balkens mit der aktuellen leistung in kW
 '''
 
 import pygame
@@ -14,11 +14,11 @@ class Power:
     def update(self):
         self.powerBar(self.power)
 
-    # funktion für den power balken
+    # funktion fuer den power balken
     # power . . . aktuelle leistung in kW 0-10
     def powerBar(self, power):
         color = (200, 200, 0) # gelb
-        # äußeren glow blitten
+        # glow blitten
         image = pygame.image.load("./assets/images/BatteryGlowYellow.png")
         self.screen.blit(image, (691, 60))
 

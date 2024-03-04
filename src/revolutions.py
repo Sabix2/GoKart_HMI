@@ -1,5 +1,5 @@
 '''
-klasse für die anzeige der Umdrehungen des Motors
+klasse fuer die anzeige der Umdrehungen des Motors
 '''
 
 import pygame
@@ -17,13 +17,13 @@ class Revolutions:
         self.revsBackground()
         self.revBar(self.revs)
 
-    # funktion für den hintergrund des umdrehungsbalkens
+    # funktion fuer den hintergrund des umdrehungsbalkens
     def revsBackground(self):
         # den glow des umdrehungsbalkens zeichnen
         image = pygame.image.load("./assets/images/RevsGauge.png")
         self.screen.blit(image, (200, 60))
     
-    # funktion für den umdrehungsbalken
+    # funktion fuer den umdrehungsbalken
     # revs . . . aktuelle umdrehungen von 0-maxRevs
     def revBar(self, revs):
         # den winkel des balkens berechnen

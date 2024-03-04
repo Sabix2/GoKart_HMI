@@ -1,5 +1,5 @@
 '''
-führt alle elemente aus 
+fuehrt alle elemente aus 
 '''
 
 from src.velocity import Velocity
@@ -22,7 +22,7 @@ class Display:
         self.mode = Mode(self.screen)
 
     def update(self):
-        # führe die update funktionen der einzelnen Elemente aus
+        # fuehre die update funktionen der einzelnen Elemente aus
         self.velocity.update()
         self.battery.update()
         self.revolutions.update()
