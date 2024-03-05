@@ -21,13 +21,12 @@ class Mode:
     # modus . . . modus des fahrzeugs
     def currentMode(self, mode):
         # fuer jeden modus den passende
-        match mode:
-            case 's':
-                mode = ''
-            case 'e':
-                mode = 'Eco'
-            case 'd':
-                mode = 'Drag'
+        if mode == 's':
+            mode = ''
+        elif mode == 'e':
+            mode = 'Eco'
+        elif mode == 'd':
+            mode = 'Drag'
 
         # den text in die untere mitte des bildschirms zeichnen
         font = pygame.font.SysFont('Arial', 30)
