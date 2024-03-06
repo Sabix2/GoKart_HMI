@@ -12,6 +12,8 @@ class Battery:
         self.percentage = Data().percentage
 
     def update(self):
+        self.percentage = Data().percentage
+        
         self.batteryBar(self.percentage)
 
     # funktion fuer den batterie balken

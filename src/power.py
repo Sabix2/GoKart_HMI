@@ -12,6 +12,8 @@ class Power:
         self.power = Data().power
 
     def update(self):
+        self.power = Data().power
+
         self.powerBar(self.power)
 
     # funktion fuer den power balken

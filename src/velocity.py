@@ -12,6 +12,8 @@ class Velocity:
         self.velocity = Data().velocity
 
     def update(self):
+        self.velocity = Data().velocity
+        
         self.speed(self.velocity)
 
     # funktion fuer die geschwindigkeit 

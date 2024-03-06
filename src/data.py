@@ -1,6 +1,6 @@
-'''
-class for the GPIO pins on the Raspberry Pi 
-'''
+'''''
+Test datei, um die Daten zu simulieren
+'''''
 
 class Data:
     def __init__(self):

@@ -14,6 +14,10 @@ class Error:
         self.collision = Data().collision
 
     def update(self):
+        self.percentage = Data().percentage
+        self.temperature = Data().temperature
+        self.collision = Data().collision
+
         self.batteryWarning(self.percentage)
         self.temperatureWarning(self.temperature)
         self.collisionWarning(self.collision)

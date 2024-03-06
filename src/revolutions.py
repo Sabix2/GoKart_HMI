@@ -15,6 +15,8 @@ class Revolutions:
 
     def update(self):
         self.revsBackground()
+        self.revs = Data().revs
+
         self.revBar(self.revs)
 
     # funktion fuer den hintergrund des umdrehungsbalkens

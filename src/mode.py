@@ -12,6 +12,8 @@ class Mode:
         self.mode = Data().mode
 
     def update(self):
+        self.mode = Data().mode
+
         self.currentMode(self.mode)
     
     # funktion fuer den modus
